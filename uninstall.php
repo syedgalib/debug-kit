@@ -5,6 +5,9 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
     die;
 }
 
+// Include Helpers
+include __DIR__ . '/utils/helper-functions.php';
+
 class WPLoggerUninstall {
 
     public function __construct() {
