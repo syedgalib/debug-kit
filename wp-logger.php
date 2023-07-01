@@ -6,7 +6,7 @@
  * @package           WPLogger
  * @author            Syed Galib
  * @copyright         2023 Syed Galib
- * @license           GPL-2.0-or-later
+ * @license           GPL-3.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name:       WP Logger
@@ -18,7 +18,7 @@
  * Author:            Syed Galib
  * Author URI:        https://github.com/syedgalib
  * Text Domain:       wp-logger
- * License:           GPL v2 or later
+ * License:           GPL v3 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Update URI:        https://github.com/syedgalib/wp-logger
  */
