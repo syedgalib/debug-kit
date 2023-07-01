@@ -17,3 +17,14 @@ do_action( 'wp_logger_print' );
 ```php
 do_action( 'wp_logger_clear' );
 ```
+
+## REST API
+### Get Logs
+```php
+$route = 'https://site.com/wp-json/wp-logger/logs' // GET Request
+```
+
+### Clear Logs
+```php
+$route = 'https://site.com/wp-json/wp-logger/logs' // DELETE Request
+```
