@@ -24,7 +24,12 @@
  */
 
 
-include __DIR__ . 'utils/helper-functions.php';
+
+defined( 'ABSPATH' ) || exit;
+
+defined( 'WP_LOGGER_FILE' ) || define( 'WP_LOGGER_FILE', __FILE__ );
+
+include __DIR__ . '/utils/helper-functions.php';
 include __DIR__ . '/app.php';
 
 if ( ! function_exists( 'WPLogger' ) ) {

@@ -18,8 +18,8 @@ final class WPLogger {
     }
 
     private function init(): void {
-        register_activation_hook( __FILE__, [ $this, 'activate_mu_plugins' ] );
-        register_deactivation_hook( __FILE__, [ $this, 'deactivate_mu_plugins' ] );
+        register_activation_hook( WP_LOGGER_FILE, [ $this, 'activate_mu_plugins' ] );
+        register_deactivation_hook( WP_LOGGER_FILE, [ $this, 'deactivate_mu_plugins' ] );
     }
 
     public function activate_mu_plugins(): void {
