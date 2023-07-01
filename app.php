@@ -1,11 +1,20 @@
 <?php
 
+use WPLogger\Utility\Serve;
+use WPLogger\API;
+
 final class WPLogger {
 
     private static ?WPLogger $instance = null;
 
     private function __construct() {
-        $this->init();
+        // Register Services
+        $controllers = $this->get_services();
+        Serve::register_services( $controllers );
+
+        // Miscellaneous
+        register_activation_hook( WP_LOGGER_FILE, [ $this, 'activate_mu_plugins' ] );
+        register_deactivation_hook( WP_LOGGER_FILE, [ $this, 'deactivate_mu_plugins' ] );
     }
 
     public static function get_instance(): WPLogger {
@@ -17,9 +26,10 @@ final class WPLogger {
         return self::$instance;
     }
 
-    private function init(): void {
-        register_activation_hook( WP_LOGGER_FILE, [ $this, 'activate_mu_plugins' ] );
-        register_deactivation_hook( WP_LOGGER_FILE, [ $this, 'deactivate_mu_plugins' ] );
+    protected function get_services() {
+        return [
+            API\Init::class,
+        ];
     }
 
     public function activate_mu_plugins(): void {

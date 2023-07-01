@@ -25,21 +25,23 @@ final class WPLoggerCore {
         add_action( 'wp_logger_clear', [ $this, 'logger_clear'], 10, 1 );
     }
 
-    public function logger_add( $data, $namespace = null, $file = null, $line = null ) {
+    public function logger_add( $data = [], $namespace = null, $file = null, $line = null ) {
         $logger_file_path = $this->get_logger_file_path();
         $logs             = $this->get_logger_data( $logger_file_path );
 
-        $date = new DateTime( 'now', new DateTimeZone( $this->timezone ) );
+        if ( ! empty( $data ) ) {
+            $date = new DateTime( 'now', new DateTimeZone( $this->timezone ) );
 
-        $logs[] = [
-            'data'      => $data,
-            'namespace' => $namespace,
-            'file'      => $file,
-            'line'      => $line,
-            'time'      => $date->format( $this->date_format )
-        ];
+            $logs[] = [
+                'data'      => $data,
+                'namespace' => $namespace,
+                'file'      => $file,
+                'line'      => $line,
+                'time'      => $date->format( $this->date_format )
+            ];
 
-        file_put_contents( $logger_file_path, json_encode( $logs ) );
+            file_put_contents( $logger_file_path, json_encode( $logs ) );
+        }
     
         return $logs;
     }

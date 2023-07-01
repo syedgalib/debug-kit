@@ -1,0 +1,15 @@
+{
+    "name": "syedgalibahmed/wp-logger",
+    "autoload": {
+        "psr-4": {
+            "WPLogger\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Syed Galib Ahmed",
+            "email": "syedgalibahmed@gmail.com"
+        }
+    ],
+    "require": {}
+}
