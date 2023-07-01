@@ -4,8 +4,8 @@
  * WP Logger
  *
  * @package           WPLogger
- * @author            Syed Galib
- * @copyright         2023 Syed Galib
+ * @author            Syed Galib Ahmed
+ * @copyright         2023 Syed Galib Ahmed
  * @license           GPL-3.0-or-later
  *
  * @wordpress-plugin
@@ -15,7 +15,7 @@
  * Version:           0.1.0
  * Requires at least: 5.2
  * Requires PHP:      7.4
- * Author:            Syed Galib
+ * Author:            Syed Galib Ahmed
  * Author URI:        https://github.com/syedgalib
  * Text Domain:       wp-logger
  * License:           GPL v3 or later
