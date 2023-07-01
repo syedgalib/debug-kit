@@ -18,8 +18,13 @@ class Logger extends Base {
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [ $this, 'get_items' ],
                     'permission_callback' => [ $this, 'check_admin_permission' ],
-                ]
-            ], 
+                ],
+                [
+                    'methods'             => WP_REST_Server::DELETABLE,
+                    'callback'            => [ $this, 'delete_items' ],
+                    'permission_callback' => [ $this, 'check_admin_permission' ],
+                ],
+            ],
         );
     }
 
@@ -30,6 +35,19 @@ class Logger extends Base {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
     public function get_items( $request ) {
+        return rest_ensure_response( apply_filters( 'wp_logger_add', null ) );
+    }
+
+    /**
+	 * Retrieves a collection of items.
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
+	 */
+    public function delete_items( $request ) {
+
+        do_action( 'wp_logger_clear' );
+
         return rest_ensure_response( apply_filters( 'wp_logger_add', null ) );
     }
 }
