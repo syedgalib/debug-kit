@@ -23,8 +23,6 @@
  * Update URI:        https://github.com/syedgalib/wp-logger
  */
 
-
-
 defined( 'ABSPATH' ) || exit;
 
 defined( 'WP_LOGGER_FILE' ) || define( 'WP_LOGGER_FILE', __FILE__ );
