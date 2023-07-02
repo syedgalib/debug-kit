@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit4f006ec958125e1a2586ef1d940ecec5
 {
     public static $prefixLengthsPsr4 = array (
-        'W' => 
+        'D' => 
         array (
             'DebugKit\\' => 9,
         ),
