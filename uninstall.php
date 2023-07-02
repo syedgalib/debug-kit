@@ -29,7 +29,7 @@ class WPLoggerUninstall {
 
         foreach( debug_kit_get_mu_plugins() as $mu_plugin ) {
             // Delete The Plugin Loader
-            $loader_path = $mu_plugin_path . "/{$mu_plugin}-load.php";
+            $loader_path = $mu_plugin_path . "/{$mu_plugin}.php";
 
             if ( file_exists( $loader_path ) ) {
                 $wp_filesystem->delete( $loader_path );

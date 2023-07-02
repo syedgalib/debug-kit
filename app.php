@@ -57,10 +57,10 @@ final class DebugKit {
             }
 
             // Install The Plugin Loader If Does Not Exists
-            $loader_dest_path = $mu_plugin_path . "/{$mu_plugin}-load.php";
+            $loader_dest_path = $mu_plugin_path . "/{$mu_plugin}.php";
 
             if ( ! file_exists( $loader_dest_path ) ) {
-                $loader_src_path = __DIR__ . "/mu-plugins/{$mu_plugin}-load.php";
+                $loader_src_path = __DIR__ . "/mu-plugins/{$mu_plugin}.php";
                 $wp_filesystem->copy( $loader_src_path, $loader_dest_path );
             }
 
@@ -81,7 +81,7 @@ final class DebugKit {
         }
 
         foreach( debug_kit_get_mu_plugins() as $mu_plugin ) {
-            $loader_dest_path = $mu_plugin_path . "/{$mu_plugin}-load.php";
+            $loader_dest_path = $mu_plugin_path . "/{$mu_plugin}.php";
 
             if ( file_exists( $loader_dest_path ) ) {
                 $wp_filesystem->delete( $loader_dest_path );
