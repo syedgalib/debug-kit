@@ -1,8 +1,7 @@
 === WP Logger ===
 Contributors: syedgalibahmed
-Donate link: 
 Tags: debug, debugging, php debugging, wp debugging, wordpress debugging
-Requires at least: 4.0
+Requires at least: 5.2
 Tested up to: 6.2.2
 Stable tag: 0.1.0
 Requires PHP: 7.0
@@ -55,6 +54,6 @@ e.g.
 
 
 == Changelog ==
-= 1.0.0 =
+= 0.1.0 =
 Initial release
 
