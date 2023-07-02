@@ -1,8 +1,8 @@
 <?php
 
-namespace WPLogger\API;
+namespace DebugKit\API;
 
-use WPLogger\Utility\Serve;
+use DebugKit\Utility\Serve;
 
 class Init {
 

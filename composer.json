@@ -2,7 +2,7 @@
     "name": "syedgalibahmed/wp-logger",
     "autoload": {
         "psr-4": {
-            "WPLogger\\": "app/"
+            "DebugKit\\": "app/"
         }
     },
     "authors": [

@@ -1,16 +1,15 @@
 <?php
 
-final class WPLoggerCore {
+final class DebugKitLogger {
 
-    private static ?WPLoggerCore $instance = null;
-    private string $date_format            = 'Y-m-d h:i:s A';
-    private string $timezone               = 'Asia/Dhaka';
+    private static ?DebugKitLogger $instance = null;
+    private string $date_format = 'Y-m-d h:i:s A';
 
     private function __construct() {
         $this->init();
     }
 
-    public static function get_instance(): WPLoggerCore {
+    public static function get_instance(): DebugKitLogger {
 
         if ( is_null( self::$instance ) ) {
             self::$instance = new self();
@@ -20,9 +19,9 @@ final class WPLoggerCore {
     }
 
     private function init() {
-        add_filter( 'wp_logger_add', [ $this, 'logger_add'], 10, 4 );
-        add_action( 'wp_logger_print', [ $this, 'logger_print'], 10, 1 );
-        add_action( 'wp_logger_clear', [ $this, 'logger_clear'], 10, 1 );
+        add_filter( 'debug_kit_add_log', [ $this, 'logger_add'], 10, 4 );
+        add_action( 'debug_kit_print_log', [ $this, 'logger_print'], 10, 1 );
+        add_action( 'debug_kit_clear_log', [ $this, 'logger_clear'], 10, 1 );
     }
 
     public function logger_add( $data = [], $namespace = null, $file = null, $line = null ) {
@@ -30,7 +29,7 @@ final class WPLoggerCore {
         $logs             = $this->get_logger_data( $logger_file_path );
 
         if ( ! empty( $data ) ) {
-            $date = new DateTime( 'now', new DateTimeZone( $this->timezone ) );
+            $date = new DateTime( 'now' );
 
             $logs[] = [
                 'data'      => $data,
@@ -71,10 +70,10 @@ final class WPLoggerCore {
 
 }
 
-if ( ! function_exists( 'WPLoggerCore' ) ) {
-    function WPLoggerCore(): WPLoggerCore {
-        return WPLoggerCore::get_instance();
+if ( ! function_exists( 'DebugKitLogger' ) ) {
+    function DebugKitLogger(): DebugKitLogger {
+        return DebugKitLogger::get_instance();
     }
 }
 
-WPLoggerCore();
+DebugKitLogger();

@@ -9,12 +9,12 @@ class ComposerStaticInit4f006ec958125e1a2586ef1d940ecec5
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
-            'WPLogger\\' => 9,
+            'DebugKit\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'WPLogger\\' => 
+        'DebugKit\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),

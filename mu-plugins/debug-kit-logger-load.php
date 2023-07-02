@@ -1,13 +1,13 @@
 <?php
 
 /**
- * WP Logger Core
+ * Debug Kit - Logger
  * 
- * Plugin Name: WP Logger Core
+ * Plugin Name: Debug Kit - Logger
  * Description: A PHP debugging tool for WordPress.
  */
 
-$path = __DIR__ . '/wp-logger-core/wp-logger-core.php';
+$path = __DIR__ . '/debug-kit-logger/debug-kit-logger.php';
 
 if ( file_exists( $path ) ) {
     include_once $path;

@@ -1,6 +1,6 @@
 <?php
 
-namespace WPLogger\API;
+namespace DebugKit\API;
 
 use WP_REST_Request;
 use WP_REST_Server;
@@ -35,19 +35,19 @@ class Logger extends Base {
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
     public function get_items( $request ) {
-        return rest_ensure_response( apply_filters( 'wp_logger_add', null ) );
+        return rest_ensure_response( apply_filters( 'debug_kit_add_log', null ) );
     }
 
     /**
-	 * Retrieves a collection of items.
+	 * Deletes a collection of items.
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
     public function delete_items( $request ) {
 
-        do_action( 'wp_logger_clear' );
+        do_action( 'debug_kit_clear_log' );
 
-        return rest_ensure_response( apply_filters( 'wp_logger_add', null ) );
+        return rest_ensure_response( apply_filters( 'debug_kit_add_log', null ) );
     }
 }

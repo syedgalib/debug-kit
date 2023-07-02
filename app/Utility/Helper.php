@@ -1,6 +1,6 @@
 <?php
 
-namespace WPLogger\Utility;
+namespace DebugKit\Utility;
 
 class Helper {
     

@@ -1,11 +1,11 @@
 <?php
 
-use WPLogger\Utility\Serve;
-use WPLogger\API;
+use DebugKit\Utility\Serve;
+use DebugKit\API;
 
-final class WPLogger {
+final class DebugKit {
 
-    private static ?WPLogger $instance = null;
+    private static ?DebugKit $instance = null;
 
     private function __construct() {
         // Register Services
@@ -13,11 +13,11 @@ final class WPLogger {
         Serve::register_services( $controllers );
 
         // Miscellaneous
-        register_activation_hook( WP_LOGGER_FILE, [ $this, 'activate_mu_plugins' ] );
-        register_deactivation_hook( WP_LOGGER_FILE, [ $this, 'deactivate_mu_plugins' ] );
+        register_activation_hook( DEBUG_KIT_FILE, [ $this, 'activate_mu_plugins' ] );
+        register_deactivation_hook( DEBUG_KIT_FILE, [ $this, 'deactivate_mu_plugins' ] );
     }
 
-    public static function get_instance(): WPLogger {
+    public static function get_instance(): DebugKit {
 
         if ( is_null( self::$instance ) ) {
             self::$instance = new self();
@@ -33,7 +33,7 @@ final class WPLogger {
     }
 
     public function activate_mu_plugins(): void {
-        if ( ! wp_logger_can_use_wp_filesystem() ) {
+        if ( ! debug_kit_can_use_wp_filesystem() ) {
             return;
         }
 
@@ -45,7 +45,7 @@ final class WPLogger {
             wp_mkdir_p( $mu_plugin_path );
         }
 
-        foreach( wp_logger_get_mu_plugins() as $mu_plugin ) {
+        foreach( debug_kit_get_mu_plugins() as $mu_plugin ) {
             // Install The Plugin If Does Not Exists
             $plugin_dest_path = $mu_plugin_path . "/{$mu_plugin}/";
 
@@ -68,7 +68,7 @@ final class WPLogger {
     }
 
     public function deactivate_mu_plugins(): void {
-        if ( ! wp_logger_can_use_wp_filesystem() ) {
+        if ( ! debug_kit_can_use_wp_filesystem() ) {
             return;
         }
 
@@ -80,7 +80,7 @@ final class WPLogger {
             return;
         }
 
-        foreach( wp_logger_get_mu_plugins() as $mu_plugin ) {
+        foreach( debug_kit_get_mu_plugins() as $mu_plugin ) {
             $loader_dest_path = $mu_plugin_path . "/{$mu_plugin}-load.php";
 
             if ( file_exists( $loader_dest_path ) ) {

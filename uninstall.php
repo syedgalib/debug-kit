@@ -15,7 +15,7 @@ class WPLoggerUninstall {
     }
 
     public function uninstall_mu_plugins(): void {
-        if ( ! wp_logger_can_use_wp_filesystem() ) {
+        if ( ! debug_kit_can_use_wp_filesystem() ) {
             return;
         }
 
@@ -27,7 +27,7 @@ class WPLoggerUninstall {
             return;
         }
 
-        foreach( wp_logger_get_mu_plugins() as $mu_plugin ) {
+        foreach( debug_kit_get_mu_plugins() as $mu_plugin ) {
             // Delete The Plugin Loader
             $loader_path = $mu_plugin_path . "/{$mu_plugin}-load.php";
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace WPLogger\API;
+namespace DebugKit\API;
 
 use WP_REST_Controller;
 use WP_Error;
@@ -8,7 +8,7 @@ use WP_Error;
 abstract class Base extends WP_REST_Controller {
 
     public function __construct() {
-        $this->namespace = WP_LOGGER_SLUG;
+        $this->namespace = DEBUG_KIT_SLUG;
         add_action( 'rest_api_init', [ $this, 'register_routes' ] );
     }
 
@@ -23,7 +23,7 @@ abstract class Base extends WP_REST_Controller {
     public function error_admin_check_failed() {
         return new WP_Error(
             'admin_check_failed',
-            __( 'You are not allowed to perform this operation.', 'wp-logger' ),
+            __( 'You are not allowed to perform this operation.', 'debug-kit' ),
             [ 'status' => rest_authorization_required_code() ]
         );
     }
