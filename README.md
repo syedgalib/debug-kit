@@ -1,5 +1,5 @@
-# WP Logger
-WP Logger is a PHP debugging tool for WordPress.
+# Debug Kit
+Debug Kit is a PHP debugging tool for WordPress.
 
 ## Examples
 
@@ -21,10 +21,10 @@ do_action( 'debug_kit_clear_log' );
 ## REST API
 ### Get Logs
 ```php
-$route = 'https://site.com/wp-json/wp-logger/logs' // GET Request
+$route = 'https://site.com/wp-json/debug-kit/logs' // GET Request
 ```
 
 ### Clear Logs
 ```php
-$route = 'https://site.com/wp-json/wp-logger/logs' // DELETE Request
+$route = 'https://site.com/wp-json/debug-kit/logs' // DELETE Request
 ```
