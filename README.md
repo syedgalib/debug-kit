@@ -1,5 +1,5 @@
 # WP Logger
-WP Logger is a PHP debugging tool for Wordpress.
+WP Logger is a PHP debugging tool for WordPress.
 
 ## Examples
 
