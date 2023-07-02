@@ -11,15 +11,15 @@
  * @wordpress-plugin
  * Plugin Name:       WP Logger
  * Plugin URI:        https://github.com/syedgalib/wp-logger
- * Description:       A debugging tool.
+ * Description:       A PHP debugging tool for WordPress.
  * Version:           0.1.0
  * Requires at least: 5.2
- * Requires PHP:      7.4
+ * Requires PHP:      7.0
  * Author:            Syed Galib Ahmed
  * Author URI:        https://github.com/syedgalib
  * Text Domain:       wp-logger
  * License:           GPL v3 or later
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Update URI:        https://github.com/syedgalib/wp-logger
  */
 
